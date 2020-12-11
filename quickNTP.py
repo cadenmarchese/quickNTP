@@ -27,6 +27,7 @@ def standard_config():
     # Replace the target string
     subprocess.run(f'touch ntp_machine_config_{role}.yaml', shell=True, stdout=None)
     filedata = filedata.replace('infra', f'{role}')
+    filedata = filedata.replace("chrony-configuration", f'{role}-chrony-configuration')
 
     # Write the file out again
     with open(f'ntp_machine_config_{role}.yaml', 'w') as file:
